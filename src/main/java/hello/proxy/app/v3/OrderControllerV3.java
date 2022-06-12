@@ -1,12 +1,18 @@
 package hello.proxy.app.v3;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
 public class OrderControllerV3 {
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     private OrderServiceV3 orderService;
 
@@ -24,4 +30,5 @@ public class OrderControllerV3 {
     public String noLog() {
         return "ok";
     }
+
 }
